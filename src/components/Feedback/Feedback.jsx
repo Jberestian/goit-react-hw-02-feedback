@@ -14,12 +14,12 @@ const Feedback = ({
 }) => {
   const { good, neutral, bad } = state;
 
-  const total = countTotalFeedback;
+  const total = countTotalFeedback();
 
-  const positive = countPositiveFeedbackPercentage;
+  const positive = countPositiveFeedbackPercentage();
 
   return (
-    <div className={s.feedback}>
+    <div className={s.feedbackForm}>
       <Section title="Please leave your feedback">
         <FeedbackOptions
           options={Object.keys(state)}
@@ -28,7 +28,7 @@ const Feedback = ({
       </Section>
 
       <Section title="Statistics">
-        <div className={s.stats}>
+        <div className={s.sections}>
           {total === 0 ? (
             <Notification message="There is no feedback" />
           ) : (
